@@ -4,12 +4,19 @@ const context = canvas.getContext('2d');
 context.scale(20, 20);
 
 const nextCanvas = document.getElementById('next');
-const nextCtx = nextCanvas.getContext('2d');
-nextCtx.scale(20,20);
+let nextCtx = null;
+if (nextCanvas) {
+  nextCtx = nextCanvas.getContext('2d');
+  nextCtx.scale(20, 20);
+}
 
 const holdCanvas = document.getElementById('hold');
-const holdCtx = holdCanvas.getContext('2d');
-holdCtx.scale(20,20);
+let holdCtx = null;
+if (holdCanvas) {
+  holdCtx = holdCanvas.getContext('2d');
+  holdCtx.scale(20, 20);
+}
+
 
 const scoreElem = document.getElementById('score');
 const levelElem = document.getElementById('level');
@@ -17,17 +24,18 @@ const levelElem = document.getElementById('level');
 //Tetronimo colours
 const colors = [
   null,
-  '#fa90e8', // T
-  '#FDFD96', // O
-  '#F1b978', // L
-  '#2E5984', // J
-  '#b4e0d1', // I
-  '#98FB98', // S
-  '#D9544D', // Z
+  '#fa90e8', //T
+  '#FDFD96', //O
+  '#F1b978', //L
+  '#2E5984', //J
+  '#b4e0d1', //I
+  '#98FB98', //S
+  '#D9544D', //Z
+  '#FFFFFF', //Garbage
 ];
 
 //Board
-const board = createMatrix(12, 20);
+const board = createMatrix(10, 20);
 
 function createMatrix(w,h){
   const matrix = [];
@@ -64,19 +72,22 @@ function drawMatrix(matrix, offset, ctx=context){
 function drawGrid(ctx, width, height){
   ctx.strokeStyle='#333';
   ctx.lineWidth=0.05;
-  for(let x=0;x<=width;x++){
+  
+  for(let x=0; x<=width; x++){
     ctx.beginPath();
-    ctx.moveTo(x,0);
-    ctx.lineTo(x,height);
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, height);
     ctx.stroke();
   }
-  for(let y=0;y<=height;y++){
+
+  for(let y=0; y<=height; y++){
     ctx.beginPath();
-    ctx.moveTo(0,y);
-    ctx.lineTo(width,y);
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
     ctx.stroke();
   }
 }
+
 
 //Ghost block
 function drawGhost(player){
@@ -150,12 +161,14 @@ function updateScore(){
 
 //Draw loop
 function draw(){
-  context.fillStyle='#000';
-  context.fillRect(0,0,canvas.width,canvas.height);
-  drawGrid(context,board[0].length,board.length);
-  drawMatrix(board,{x:0,y:0});
+  // Fill only the board area
+  context.fillStyle = '#000';
+  context.fillRect(0,0,board[0].length,board.length);
+  
+  drawGrid(context, board[0].length, board.length);
+  drawMatrix(board, {x:0, y:0});
   drawGhost(player);
-  drawMatrix(player.matrix,player.pos);
+  drawMatrix(player.matrix, player.pos);
 
   //Next piece
   nextCtx.fillStyle='#000';

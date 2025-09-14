@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T-Spin Practice</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { background:#111; color:#F9E076; font-family: Arial, sans-serif; text-align:center; }
+  canvas { border:2px solid #555; background:#000; display:block; margin:20px auto; }
+  .menu-btn { position:absolute; top:10px; left:10px; padding:5px 10px; cursor:pointer; }
+  .menu-dropdown { display:none; position:absolute; top:40px; left:10px; background:#222; padding:5px; border-radius:5px; }
+  .menu-dropdown button { display:block; margin:5px 0; padding:5px; background:#444; border:none; color:#F9E076; cursor:pointer; }
+  .menu-dropdown button:hover { background:#666; }
+</style>
+</head>
+<body>
+
+<h1>T-SPIN PRACTICE</h1>
+
+<div class="menu-container">
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+  <div id="menuDropdown" class="menu-dropdown">
+    <button onclick="location.href='home.html'">HOME</button>
+    <button onclick="resetGame()">Reset</button>
+  </div>
+</div>
+
+<canvas id="tetris" width="200" height="400"></canvas>
+
+<div>
+  <p>Score: <span id="score">0</span> | Level: <span id="level">1</span></p>
+</div>
+
+
+
+<script src="tspin.js"></script>
+<script>
+  function toggleMenu(){
+    const menu=document.getElementById("menuDropdown");
+    menu.style.display = menu.style.display==='block'?'none':'block';
+  }
+
+</script>
+
+</body>
+</html>
