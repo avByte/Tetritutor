@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tetris</title>
+  <title>Tetritutor</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,6 +25,16 @@
   </div>
 
   <p class="score">Score: <span id="score">0</span></p>
+
+<div class="menu-container">
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+  <div id="menuDropdown" class="menu-dropdown">
+    <button onclick="location.href='home.html'">Home</button>
+    <button onclick="resetGame()">Reset</button>
+
+  </div>
+</div>
+
 
   <script src="tetris.js"></script>
 </body>

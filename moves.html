@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TetriTutor - Moves</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.moves {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #F9E076;
+    }
+
+    .moves .container {
+      text-align: center;
+    }
+
+    .moves h1 {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+
+    .moves .btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      background: #444;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .moves .btn:hover {
+      background: #666;
+    }
+
+    .moves .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .moves .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .moves .modal-content {
+      background: #222;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body class="moves">
+  <div class="container">
+    <h1>MOVES</h1>
+    <div class="button-row">
+      <button class="btn">1</button>
+      <button class="btn" onclick="openModal('move2')">S/Z Spins</button>
+      <button class="btn" onclick="openModal('move3')">L/J Spins</button>
+      <button class="btn" onclick="openModal('move4')">I Spins</button>
+      <button class="btn" onclick="openModal('move5')">ZST/SST Stacking</button>
+    </div>
+  </div>
+
+  <div id="move2" class="modal" onclick="closeModal(event,'move2')">
+    <div class="modal-content">
+      <h2>S/Z Spins</h2>
+      <p>Coming Soon!</p>
+    </div>
+  </div>
+
+  <div id="move3" class="modal" onclick="closeModal(event,'move3')">
+    <div class="modal-content">
+      <h2>L/J Spins</h2>
+      <p>Coming Soon!</p>
+    </div>
+  </div>
+
+  <div id="move4" class="modal" onclick="closeModal(event,'move4')">
+    <div class="modal-content">
+      <h2>I Spins</h2>
+      <p>Coming Soon!</p>
+    </div>
+  </div>
+
+  <div id="move5" class="modal" onclick="closeModal(event,'move5')">
+    <div class="modal-content">
+      <h2>ZST/SST Stacking</h2>
+      <p>Coming Soon!</p>
+    </div>
+  </div>
+
+  <button class="btn home-btn" onclick="location.href='home.html'">Home</button>
+
+  <script>
+    function openModal(id){
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(event,id){
+      if(event.target.classList.contains('modal')){
+        document.getElementById(id).style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

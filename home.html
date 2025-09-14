@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TetriTutor - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.home {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #F9E076;
+    }
+    .home .container {
+      text-align: center;
+    }
+    .home h1 {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+    .home .btn {
+      display: block;
+      margin: 1rem auto;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      background: #444;
+      color: white;
+      transition: 0.2s;
+    }
+    .home .btn:hover {
+      background: #666;
+    }
+    .home .small-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .home .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .home .modal-content {
+      background: #222;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body class="home">
+  <div class="container">
+    <h1>TETRITUTOR</h1>
+    <button class="btn" onclick="location.href='learn.html'">Learn</button>
+    <button class="btn" onclick="location.href='index.html'">Free Play</button>
+    <div class="small-btns">
+      <button class="btn small" onclick="openModal('aboutModal')">Info</button>
+      <button class="btn small" onclick="openModal('helpModal')">Controls</button>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div id="aboutModal" class="modal" onclick="closeModal(event, 'aboutModal')">
+    <div class="modal-content">
+      <h2>What is Tetritutor?</h2>
+      <p>Tetritutor is a practice tool! With options to freeplay the block stacking game, practice useful mechanics in specifically setup boards, or be directed to the wiki, Tetritutor puts everything you need to learn the game in one place.</p>
+    </div>
+  </div>
+
+  <!-- Help Modal -->
+  <div id="helpModal" class="modal" onclick="closeModal(event, 'helpModal')">
+    <div class="modal-content">
+      <h2>Controls</h2>
+      <p>< - Left Move <br> > - Right Move <br> ^ Rotate Clockwise <br> v - Soft Drop <br> Space - Hard Drop <br> Shift - Hold Block <br> Q - Rotate Counterclockwise <br> W - Rotate Clockwise</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function closeModal(event, id) {
+      if (event.target.classList.contains("modal")) {
+        document.getElementById(id).style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TetriTutor - Learn</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.learn {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #F9E076;
+    }
+
+    .learn .container {
+      text-align: center;
+    }
+
+    .learn h1 {
+      font-size: 4rem;
+      margin: 2rem 0;
+    }
+
+    .learn .btn {
+      display: inline-block;
+      margin: 1rem;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      background: #444;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .learn .btn:hover {
+      background: #666;
+    }
+
+    .learn .small-btns {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .learn .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .learn .modal-content {
+      background: #222;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body class="learn">
+  <div class="container">
+    <!-- Wiki button-->
+    <button class="btn" onclick="window.open('https://harddrop.com/wiki', '_blank')">Wiki</button>
+
+    <!--LEARN title-->
+    <h1>LEARN</h1>
+
+    <!--Moves and Openers buttons-->
+    <div class="small-btns">
+      <button class="btn" onclick="location.href='moves.html'">Moves</button>
+      <button class="btn" onclick="openModal('openersModal')">Openers</button>
+    </div>
+  </div>
+
+  <!--Openers-->
+  <div id="openersModal" class="modal" onclick="closeModal(event, 'openersModal')">
+    <div class="modal-content">
+      <h2>Openers</h2>
+      <p>Coming Soon!</p>
+    </div>
+  </div>
+
+  <button class="btn home-btn" onclick="location.href='home.html'">Home</button>
+
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function closeModal(event, id) {
+      if (event.target.classList.contains("modal")) {
+        document.getElementById(id).style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
