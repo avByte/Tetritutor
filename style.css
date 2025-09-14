@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #111;
+  margin: 0;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.game-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+}
+
+canvas {
+  background: black;
+  border: 2px solid white;
+}
+
+.hold-box, .next-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.score {
+  margin-top: 10px;
+  font-size: 18px;
+}
